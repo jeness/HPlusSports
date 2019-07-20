@@ -42,7 +42,8 @@
 	<jsp:useBean id="user" scope="request" type="com.test.beans.User"></jsp:useBean>
 	<section>
 
-		
+		<ex:formatDate date="<%=Calendar.getInstance().getTime()%>"
+			format="dd-MM-YYYY hh:mm"></ex:formatDate>
 	</section>
 	<section id="profile" class="section">
 		<div class="container">

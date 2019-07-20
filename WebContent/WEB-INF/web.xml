@@ -2,11 +2,33 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>HPlusSample</display-name>
   
+  <servlet>
+  <servlet-name>GetServlet</servlet-name>
+  <servlet-class>com.test.servlets.GetServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  
+  <servlet-name>GetServlet</servlet-name>
+  <url-pattern>/getServlet</url-pattern>
+  </servlet-mapping>
   
   
   
-    
-
-
+  
+  <servlet>
+  <servlet-name>HomeServlet</servlet-name>
+  <servlet-class>com.test.servlets.HomeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>HomeServlet</servlet-name>
+  <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>HomeServlet</servlet-name>
+  <url-pattern></url-pattern>
+  </servlet-mapping>
   
 </web-app>
