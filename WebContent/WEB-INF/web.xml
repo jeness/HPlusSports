@@ -13,9 +13,6 @@
   <url-pattern>/getServlet</url-pattern>
   </servlet-mapping>
   
-  
-  
-  
   <servlet>
   <servlet-name>HomeServlet</servlet-name>
   <servlet-class>com.test.servlets.HomeServlet</servlet-class>

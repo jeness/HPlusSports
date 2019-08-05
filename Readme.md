@@ -19,16 +19,32 @@ Orders - to store order history of a particular user
 5. HEAD - same as GET, but returns only the headers
 6. OPTIONS - helps trace what HTTP methods work on server
 
-### GET Request
+## GET Request - get info from server
 + Use to get info form server, can be image, text, video and audio
 + Data sent along is a query string visible in URL; hence, insecure
 + Data limit 8KB, with a few caveats
 + Idempotent(幂等的) - would not change anything on server side if request is sent out multiple times
 
-## Search Use Case: Steps
-+ HTML -> Servlet -> DAO
+### Search Use Case: Steps
++ HTML -> Servlet -> DAO -> Database
 + Write a SearchServlet class with the doGet method
 + Collect serach string entered by user and pass to the ApplicationDao class
 + Add method for searching products in ApplicationDao class, which returns all products to calling methods
 + Build the method in SearchServlet, which reads the entire searchResults.html file, read the HTML as a String
++ Assign proper attributes to the form element on HTML
+
+## POST Request - process/post info on server
++ Another HTTP request type
++ Used to post/process information
++ Typically used to modify data into a data store
++ For example, register on a website or checking out a shopping cart
++ Request data is sent in a separate, secure component 
++ POST Request is nonidempotent
+
+### POST case: Register User
++ An action on JSP/HTML -> Servlet -> Dao -> Database
++ Write RegisterUserServlet class with the doPost method, collect all form data and pass to the DAO layer
++ Write a method in ApplicationDao to insert user data
++ Construct and send an information message back to browser from RegisterUserServlet
++ Write message back to the client
 + Assign proper attributes to the form element on HTML
