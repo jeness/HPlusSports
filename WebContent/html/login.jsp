@@ -4,7 +4,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 <meta charset="ISO-8859-1">
 <title>H+ Sport</title>
 
@@ -17,7 +17,7 @@
 		<nav class="nav" role="navigation">
 			<div class="container nav-elements">
 				<div class="branding">
-					<a href="#home"><img src="images/hpluslogo.svg"
+					<a href="#home"><img src="../images/hpluslogo.svg"
 						alt="Logo - H Plus Sports"></a>
 				</div>
 				<!-- branding -->
@@ -67,7 +67,7 @@
 			<nav class="nav" role="navigation">
 				<div class="container nav-elements">
 					<div class="branding">
-						<a href="#home"><img src="images/hpluslogo.svg"
+						<a href="#home"><img src="../images/hpluslogo.svg"
 							alt="Logo - H Plus Sports"></a>
 						<p class="address">
 							100 Main Street<br> Seattle, WA 98144
@@ -89,7 +89,7 @@
 <%!
 
 public String displayDate(){
-	SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-mm-dd hh:mm");
+	SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd hh:mm");
 	Date toDate = Calendar.getInstance().getTime();
 	return dateFormat.format(toDate);
 }

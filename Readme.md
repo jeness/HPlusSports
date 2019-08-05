@@ -48,3 +48,13 @@ Orders - to store order history of a particular user
 + Construct and send an information message back to browser from RegisterUserServlet
 + Write message back to the client
 + Assign proper attributes to the form element on HTML
+
+### Forwarding in Servlets
+![Forwarding in servlets.png](images/Forwarding_in_servlets.png)
+- Clients display the html to user
+- Servlet processes the request from client and send to DAO.
+- DAO talks to database.
+- DAO get the result from db and send back to servlet.
+- Servlet writes response to the client.
+- When a request reach at one Servlet, because the funcionality is crossing  different Servlet, then after the Servlet does what it is supposed to do, then it will go to other servlet to get the answer. 
+- In other cases, a servlet can also forward the entire request to a JSP.
