@@ -1,6 +1,7 @@
 package com.test.servlets;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.annotation.WebInitParam;
@@ -25,6 +26,9 @@ public class GetServlet extends HttpServlet{
 
 		String htmlResponse = "<html><h3>Welcome to Servlets!</h3>" + config.getInitParameter("URL") + "</html>";
 		PrintWriter writer = resp.getWriter();
+
+		ServletContext context = getServletContext();
+		System.out.println(context.getInitParameter("dbURL"));
 
 		writer.write(config.getInitParameter("URL")+ htmlResponse+"");
 		

@@ -64,5 +64,61 @@ Orders - to store order history of a particular user
 - RequestDispatcher.forward to hand over request control to another resource
 - RequestDispatcher.include to include response of current and included resource
 
-### Servlet config
-- Each servlet has its own servlet object
+### ServletConfig API
+- Each servlet has its own ServletConfig instance
+
+### ServletContext API
+- Used to pass configuration information for the entire application
+- Init parameters defined in the deployment descriptor file under the <context-param> element
+- Parameters are key-value pairs and always of type String
+- One ServletContext instance per application
+### HTTPServletRequest Object
+- Extends the ServletRequest API and provides all request information to HTTP servlets
+- Contains headers and data
+- Important API calls: 
+`request.getSession`, `request.getHeader(String headerName)`
+`request.getRequestURI()`, `request.getParameter(String param)`
+`request.getCookies()`, `request.getMethod()`
+### HTTPServletResponse Object
+- Extends the ServletResponse API and represents the response to client
+- Contains headers and data
+- Important API calls
+`response.sendRedirect(String url)`,`response.addCookie(Cookie cookie)`,
+`response.encodeURL(String url)`, `response.setContentType(String contentType)`,
+`response.getStatus()`, `response.getWriter()`
+The response Object, like the request object, it also has headers and body. 
+Body is exactly the place where all the response that have written out from teh servlet sits in,
+whereas the headers contain the extra info, like the content type, etc.
+
+## Scopes in a Web App
+- Components talk to each other by sharing information
+- Information stored in scope object in the form
+- Four scopes
+1. Request - HTTPServletRequest or ServletRequest
+This scope is alive until the response of this request goes back to the client. So information can be store in this request scope in the form of an atrribute, and the information of the attribute is a key-value pair.
+2. Session - HTTPSession
+3. Context(application) - ServletContext
+4. Page - JSPContext
+
+### Parameters vs Attributes
+| Parameters                   | Attributes                 |
+|------------------------------|----------------------------|
+| Return only String values    | Returns objects            |
+| Cannot be set in scopes      | can be set in scopes       |
+| getParameter("name")         | getAttribute("name")       |
+| can be configured in web.xml | setAttribute("name", name) |
+
+### Servlet Life Cycle
+![Servlet_life_cycle](images/servlet_life_cycle.png)
+- Init method only can be called once. Usually used for db connection.
+- Service method is to delegate the call to doGet or doPost methods
+- Destroy method is to clean up activity, when shut down the server.
+
+When multiple requests comming for the same servlet, the steps in red color will be happend again for the repeated requests.
+
+Servlet requests come in the application are multithreaded and run in parallel for the concurrent requests.
+
+init method can be override, destory method can be override,
+But service method must not be override.
+
+In practical project, db connection uses connection pool to make user make connections to the db.
