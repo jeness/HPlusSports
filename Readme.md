@@ -49,7 +49,11 @@ Orders - to store order history of a particular user
 + Write message back to the client
 + Assign proper attributes to the form element on HTML
 
+<<<<<<< HEAD
 ## Forwarding in Servlets
+=======
+### Forwarding in Servlets
+>>>>>>> 51f3bfad1328160b9a48db1c16c6f71557caa827
 ![Forwarding in servlets.png](images/Forwarding_in_servlets.png)
 - Clients display the html to user
 - Servlet processes the request from client and send to DAO.
@@ -57,6 +61,7 @@ Orders - to store order history of a particular user
 - DAO get the result from db and send back to servlet.
 - Servlet writes response to the client.
 - When a request reach at one Servlet, because the funcionality is crossing  different Servlet, then after the Servlet does what it is supposed to do, then it will go to other servlet to get the answer. 
+<<<<<<< HEAD
 - In other cases, a servlet can also forward the entire request to a JSP.
 
 ### RequestDispatcher API
@@ -64,3 +69,6 @@ Orders - to store order history of a particular user
 - RequestDispatcher.forward to hand over request control to another resource
 - RequestDispatcher.include to include response of current and included resource
 -
+=======
+- In other cases, a servlet can also forward the entire request to a JSP.
+>>>>>>> 51f3bfad1328160b9a48db1c16c6f71557caa827
