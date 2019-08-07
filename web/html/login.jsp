@@ -33,7 +33,10 @@
   </div>container tagline -->
 	</header>
 	<!-- #home -->
-
+	<section>
+<%--		display date and time for today--%>
+		<%=displayDate()%>
+	</section>
 
 	<section id="login" class="section">
 		<div class="container tagline">
@@ -75,5 +78,12 @@
 		<!-- container -->
 	</footer>
 	<!-- footer -->
+	<%!
+		public String displayDate(){
+			SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd hh:mm");
+			Date date = Calendar.getInstance().getTime();
+			return dateFormat.format(date);
+		}
+	%>
 </body>
 </html>

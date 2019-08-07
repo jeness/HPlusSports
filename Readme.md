@@ -122,3 +122,40 @@ init method can be override, destory method can be override,
 But service method must not be override.
 
 In practical project, db connection uses connection pool to make user make connections to the db.
+
+# JavaServer Pages(JSP)
+- Problems with HTML pages
+    + Allows to render static data only
+    + I/O operation to read and write HTML template back is time-consuming process
+    + Stuffing all HTML with CSS code directly inside servlet is tedious
+    + Specialized UIdevelopers may not be equipped to handle servlet code
+## JSP features
+- JSP excuted on server side and rendered to client side
+- can work with a scripting language
+![jspfeature](images/jspfeatures.png)
+- jsp file = HTML + java translation to .java compilation to loginServlet.class
+![jspfile](images/jspfile.png)
+
+- Scriptlet: <% %> - helps write Java statements on JSP
+- Expression: <%= %> - helps evaluate expressions on JSP
+- Declaration: <%! %> - helps declare variables and methods in a page's scripting language; code goes as seperate method in translated servlet file
+### JSP Life Cycle
+![jsp Life cycle](images/jspLifeCycle.png)
+When the second request comes, it will directly call the jspService method.
+### JSP Directives
+- Special instructions to container for translation process
+- They do not appear as output
+- Examples: Import class for the code written on JSP, divise error pages for the application(when error happends, show 404 page, include jsp dynamically)
+- In page directives`<%@ page%>` , import is the only directive can be used multiple times, other page directives can be used only once.
+- Include directives: `<%@include%>` allows inclusion of JSP resource
+### Implicit Objects in JSP
+- Objects already created on JSP with predefined
+    out: helps write output to JSP - JSPWriter
+    request: request for the JSP page - HTTPServletRequest
+    response: response for the JSP page - HTTPServletResponse
+    session: session object for the user logged in - HTTPSession
+    config: represents Servlet Config object
+    application: represents ServletContext object
+    exception: represents exception and can be used on error pages
+    pageContext: contains a reference to all implicit objects and can be used to access information of the page
+    
