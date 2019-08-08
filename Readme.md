@@ -185,3 +185,24 @@ When the second request comes, it will directly call the jspService method.
 - Set up session in LoginServlet
 - Store user information and forward control to home.jsp
 - Write ViewProfileServlet and fetch session information to verify
+## Filters
+- Filter class is reserved for preprocessing and postprocessing of a request
+- can dynamically intercept request and response
+- promote modularity, reusability and maintainability
+- Prossess the power of abruptly terminating the request execution
+- Use case : user authentication, logging, encreption and decreption
+![filter](images/filter.png)
+- `javax.servlet.Filter` interface
+- `javax.servlet.FilterConfig` to pass any configuration info to the filter
+- `javax.servlet.FilterChain` invokes a chain of filters together with ethe servlet
+- doFilter API is the essential call in filter - holds filter logic
+![filterchain](images/filterchain.png)
+### Filter steps
+- Login request -> Servlet -> DAO
+- Filter will do authentication and block access to certain servlet URLs(orderHistory, getProfileDetails) in case: malicious user access the URL on a different machine, session itself times out ont the same machine.
+- Check the session object for a valid username
+- Add the validation method in DAO
+- Call DAO method from LoginServlet class
+Prepare an error message for invalid user and set it in request; display on JSP
+- In the filter class
+Retrieve the session for sensitive URLs and check for a valid username
