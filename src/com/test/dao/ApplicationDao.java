@@ -12,12 +12,12 @@ import java.util.List;
 
 public class ApplicationDao {
 
-	public List<Product> searchProducts(String searchString) {
+	public List<Product> searchProducts(String searchString, Connection connection) {
 		Product product = null;
 		List<Product> products = new ArrayList<>();
 
 		try {
-			Connection connection = DBConnection.getConnectionToDatabase();
+//			Connection connection = DBConnection.getConnectionToDatabase();
 
 			String sql = "select * from products where product_name like '%" + searchString + "%'";
 

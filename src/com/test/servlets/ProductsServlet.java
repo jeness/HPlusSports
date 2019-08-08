@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,9 @@ public class ProductsServlet extends HttpServlet {
 
         //get the search results from dao
         ApplicationDao dao = new ApplicationDao();
-        List<Product> products = dao.searchProducts(search);
+        Connection connection = (Connection)getServletContext().getAttribute("dbconnection");
+
+        List<Product> products = dao.searchProducts(search, connection);
 
         //set the search results in request scope
         request.setAttribute("products", products);

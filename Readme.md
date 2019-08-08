@@ -205,4 +205,40 @@ When the second request comes, it will directly call the jspService method.
 - Call DAO method from LoginServlet class
 Prepare an error message for invalid user and set it in request; display on JSP
 - In the filter class
-Retrieve the session for sensitive URLs and check for a valid username
+1. Retrieve the session for sensitive URLs and check for a valid username
+2. Redirect to login page in case no user found
+
+## Events in JEE
+- Notifications for change in state of certain objects
+- They occur at following levels:
+Change in ServletContext object(application level)
+Change in the HTTPSession object(session level)
+Change in the HTTPServletRequest object(request level)
+- Events can either be changed in the life cycle or the attributes can be added, removed or replaced in above objects.
+### Where can events occur?
+- Deploy and undeploy of an application(context)
+- Session creation and destruction on login and logout in an application
+- Start of request processing
+- Attributes added/removed in session, request, or context objects
+- Session migration
+- Object binding and unbinding itself from session
+- Listener classes can be created by inheriting the appropriate interfaces from the 
+javax.servlet or javax.servlet.http package
+### Listener Use case scenario
+- Previous flows
+Servlet -> Dao(set up db connection) ->Database
+- After listener implementation
+Listener(sets up DB connection) -> Servlets retrieve connection -> pass connection to Dao -> database
+### Listener Interface
+- ServletContextListener
+- ServletContextAttributeListener
+- HTTPSessionListener
+- HTTPSessionAttributeListener
+- ServletRequestListener
+- HttpSessionBindingListener
+### Listener Code steps:
+- Write a listener class that implements the javax.servlet.ServletContextListener interface and generate the pair of methods
+- Obtain the DB connection object in the contextInitialized method
+- Store the connection object in ServletContext as an attribute
+- Configure the listener in the deployment descriptor
+- Get the DB connection in any of the servlets using the ServletContext object instead of setting up directly in the DAO layer
