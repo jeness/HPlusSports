@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>H+ Sport</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -20,10 +20,9 @@
 				<ul class="navbar">
 					<li><a href="home">home</a></li>
 					<li><a href="orderHistory">order history</a></li>
-					<!-- <li><a href="viewProfile">view my profile</a></li> -->
-					<li><a href='<%=response.encodeURL("viewProfile")%>'>view
-							my profile</a></li>							
-					<li><a href='logout'>logout</a></li>
+<%--					<li><a href="viewProfile">view my profile</a></li>--%>
+					<li><a href="<%=response.encodeURL("getProfileDetails")%>">view my profile</a></li>
+					<li><a href="logout">logout</a></li>
 					<li><a href="redirect">linkedIn</a></li>
 
 				</ul>

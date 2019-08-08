@@ -159,3 +159,29 @@ When the second request comes, it will directly call the jspService method.
     exception: represents exception and can be used on error pages
     pageContext: contains a reference to all implicit objects and can be used to access information of the page
     
+## HTTP has limitation
+- HTTP is a stateless protocol, it does not remember the user's info when they add things to the shopping cart
+![http limitatain](images/httplimitation.png)
+### solution
+- Store user info in database upon first request - time-consuming process
+- EJB session bean implementation
+- Servlet specification has HTTPSession API for session tracking
+- Server sets up session ID to uniquely track every user's information
+- Session ID exchange by cookies or URL rewriting(send request and respond with the same session id)
+![cookies](images/cookies.png)
+### Session management using cookies
+- Write a servlet class for session management
+- Get the HTTPSession objet on the HTTPServletRequest API
+- Create a list of products for the user cart and keep adding selected product name to the list
+- Set the search results to the request object as an attribute
+- Add form element attributes on page
+### Session ID exchange: URL Rewriting
+- Fallback option in case cookies are disabled
+- URL rewritten with the session ID appended at the end 
+![session_id_url](images/sessionidurl.png)
+- Developer to encode all necessary URLs
+#### URL Rewriting steps
+- Disable cookies in browser
+- Set up session in LoginServlet
+- Store user information and forward control to home.jsp
+- Write ViewProfileServlet and fetch session information to verify

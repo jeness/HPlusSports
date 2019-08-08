@@ -12,5 +12,6 @@
 </head>
 <body>
 <p> Sorry, some error occurred, please try again later.</p>
+<%=exception %>
 </body>
 </html>

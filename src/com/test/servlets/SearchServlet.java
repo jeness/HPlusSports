@@ -24,7 +24,7 @@ public class SearchServlet extends HttpServlet{
 		//collect search string from the form
 		String searchString = req.getParameter("search");
 		
-		
+		req.getSession().setAttribute("search", searchString);
 		//call DAO layer and get all products for search criteria
 		ApplicationDao dao = new ApplicationDao();
 		List<Product> products = dao.searchProducts(searchString);
