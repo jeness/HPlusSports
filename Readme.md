@@ -109,7 +109,7 @@ This scope is alive until the response of this request goes back to the client. 
 | can be configured in web.xml | setAttribute("name", name) |
 
 ### Servlet Life Cycle
-![Servlet_life_cycle](images/servlet_life_cycle.png)
+![Servlet_life_cycle](images/servlet_life_cycle111.png)
 - Init method only can be called once. Usually used for db connection.
 - Service method is to delegate the call to doGet or doPost methods
 - Destroy method is to clean up activity, when shut down the server.
