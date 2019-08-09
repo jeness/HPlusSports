@@ -242,3 +242,14 @@ Listener(sets up DB connection) -> Servlets retrieve connection -> pass connecti
 - Store the connection object in ServletContext as an attribute
 - Configure the listener in the deployment descriptor
 - Get the DB connection in any of the servlets using the ServletContext object instead of setting up directly in the DAO layer
+## JSP Standard Actions
+- `<jsp:useBean.../>` helps to instantiate a bean on the JSP or get a bean on JSP in a specified scope
+- `<jsp:forward.../>` forwards the control to another resource in the context
+- `<jsp:include.../>` includes another resource in the current resource
+- `<jsp:getProperty.../>` fetches and displays a value from a JavaBean property
+- `<jsp:setProperty.../>` sets a value to a JavaBean property
+### JSP standard actions demo steps
+- Add a method in DAO to get profile details
+- Write the ViewProfile servlet class which collects username and calls DAO layer to fetch profile info
+- Store entire user profile info in request object
+- Display on JSP using JSP standard actions

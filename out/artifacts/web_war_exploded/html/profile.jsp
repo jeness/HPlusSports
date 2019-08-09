@@ -40,29 +40,38 @@
   </div>container tagline -->
 	</header>
 
-<%--<jsp:useBean id="user" scope="request" type="com.test.beans.User"></jsp:useBean>--%>
-<%--<section>--%>
+<jsp:useBean id="user" scope="request" type="com.test.beans.User"></jsp:useBean>
+<section>
 
-<%--    <ex:formatDate date="<%=Calendar.getInstance().getTime()%>"--%>
-<%--        format="dd-MM-YYYY hh:mm"></ex:formatDate>--%>
-<%--</section>--%>
-<%--<section id="profile" class="section">--%>
-<%--    <div class="container">--%>
-<%--        <h2 class="headline"></h2>--%>
-<%--        <table id="profile">--%>
+    <ex:formatDate date="<%=Calendar.getInstance().getTime()%>"
+        format="dd-MM-YYYY hh:mm"></ex:formatDate>
+</section>
+<section id="profile" class="section">
+    <div class="container">
+        <h2 class="headline"></h2>
+        <table id="profile">
 
-<%--            <tr>--%>
-<%--                <td>Username</td>--%>
-<%--                <td><jsp:getProperty property="username" name="user" /></td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td>First Name</td>--%>
-<%--                <td><jsp:getProperty property="firstName" name="user" /></td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td>Last Name</td>--%>
-<%--                <td><jsp:getProperty property="lastName" name="user" /></td>--%>
-<%--            </tr>--%>
+            <tr>
+                <td>Username</td>
+                <td><jsp:getProperty property="username" name="user" /></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><jsp:getProperty property="firstName" name="user" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><jsp:getProperty property="lastName" name="user" /></td>
+            </tr>
+			<tr>
+				<td>Age</td>
+				<td><jsp:getProperty property="age" name="user" /></td>
+			</tr>
+			<tr>
+				<td>Interested in</td>
+				<td><jsp:getProperty property="activity" name="user" /></td>
+			</tr>
+
 <%--            <tr>--%>
 <%--                <td>Age</td>--%>
 <%--                <td>${user.age}</td>--%>
@@ -72,9 +81,9 @@
 <%--                <td>${user.activity}</td>--%>
 <%--            </tr>--%>
 
-<%--        </table>--%>
-<%--    </div>--%>
-<%--</section>--%>
+        </table>
+    </div>
+</section>
 
 
 
