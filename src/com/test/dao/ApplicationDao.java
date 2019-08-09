@@ -1,5 +1,6 @@
 package com.test.dao;
 
+import com.test.beans.Order;
 import com.test.beans.Product;
 import com.test.beans.User;
 
@@ -117,5 +118,34 @@ public class ApplicationDao {
 			exception.printStackTrace();
 		}
 		return user;
+	}
+
+	public List<Order> getOrders(String username){
+		Order order = null;
+		List<Order> orders = new ArrayList<>();
+		try {
+			//get connection to db
+			Connection connection = DBConnection.getConnectionToDatabase();
+
+			//write select query to get order detials
+			String sql = "select * from orders where user_name=?";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, username);
+			//execute query, get resultset and return user info
+			ResultSet set = statement.executeQuery();
+			while(set.next()){
+				order = new Order();
+				order.setOrderId(set.getInt("order_id"));
+				order.setProductName(set.getString("product_name"));
+				order.setProductImgPath(set.getString("image_path"));
+				order.setOrderDate(new Date(set.getDate("order_date").getTime()));
+				order.setUsername(set.getString("user_name"));
+				orders.add(order);
+			}
+		}
+		catch (SQLException exception){
+			exception.printStackTrace();
+		}
+		return orders;
 	}
 }

@@ -253,3 +253,63 @@ Listener(sets up DB connection) -> Servlets retrieve connection -> pass connecti
 - Write the ViewProfile servlet class which collects username and calls DAO layer to fetch profile info
 - Store entire user profile info in request object
 - Display on JSP using JSP standard actions
+## Expression language
+### Expressions could be 
+- Immediate: evaluate immediately when JSP runs.
+Syntax: `${}`, used by JSP
+- Deferred: is deferred and evaluates at a later point in time
+Syntax: `#{}`, userd by JSF
+### Example of Empressions in EL
+- JavaBeans data navigation
+Not need for target a scope. It will search for all scopes to find the username under the user data
+```
+${user.age}
+${requestScope.nofItems}
+${sessionScope.username}
+```
+- Arithmetic operations
+```
+${a * 3.14125}
+${a div b}
+${a/b}
+${a % b}
+${a mod b}
+```
+- Relational operations
+```
+${a*b == 20}, ${a*b eq 20}, ${a*b ne 20}
+${a>100}, ${a gt 100}, ${a<20},${a lt 20}, ${a le 100}, ${a<=100}
+```
+- Logical operations
+${(23>=100) and (12<100)}, ${(23>=100) &&(12<100)}
+### EL Implicit Objects
+- requestScope: map of all attributes of actual HTTPServletRequest impolicit object
+- sessionScope: map of all attributes of actual HTTPSession implicit object
+- pageScope: map of all page-scoped attributes
+- applicationScope: map of all application-scoped attributes
+- cookie: maps the cookie object
+- param: gets the request parameter, request.getParameter("id") -> ${param.id}
+- header: maps a reqeust headers name to a single value, ${header["User-Agent"]}
+- headerValues: gets all the request header values in an array
+- initParam: helps to get the context init parameters, context.getInitParameter(") -> ${initParam.id}
+- pageContext: same as the pageContext implicit object of JSP
+- If a predefined scope is not mentioned in expression like ${cart.noOfItems}, then
+the system will search the object in all scopes in the following order: page, request, session, application
+## JavaServer Pages Standard Tag Library
+### JSTL has module for 
+- Display data, iteration, conditional statements - core module
+- Formatting values, localization, and internationalization - FMT module
+- Parsing and manipulating an XML document - XML module
+- Querying database with SQL - SQL module(not used today)
+### JSTL
+- Core module: `<c:name of tag/>`
+- XML module: `<x:name of tag/>`
+- SQL module: `<sql:name of tag/>`
+- FMT module: `<fmt:name of tag/>`
+- Each of the modules need to be included independently on the JSP page
+### JSTL steps: get order details 
+- Write a servlet class for the JSTL demo
+- Add a method in ApplicaitonDao class to get order details for the user
+- Call the ApplicationDao method form the servlet class and set all data in the request scope and forwrd control to JSP
+- Add JSTL JAR to build path
+- Add JSTL modules on JSP

@@ -53,19 +53,19 @@
 
             <tr>
                 <td>Username</td>
-                <td><jsp:getProperty property="username" name="user" /></td>
+                <td>${user.username}</td>
             </tr>
             <tr>
                 <td>First Name</td>
-                <td><jsp:getProperty property="firstName" name="user" /></td>
+                <td>${user.firstName}</td>
             </tr>
             <tr>
                 <td>Last Name</td>
-                <td><jsp:getProperty property="lastName" name="user" /></td>
+                <td>${user.lastName}</td>
             </tr>
 			<tr>
 				<td>Age</td>
-				<td><jsp:getProperty property="age" name="user" /></td>
+				<td>${user.age}</td>
 			</tr>
 			<tr>
 				<td>Interested in</td>
@@ -83,6 +83,23 @@
 
         </table>
     </div>
+	<div class="container">
+		<h2 class="headline">Weight Summary</h2>
+		<table id="weightSummary">
+			<tr>
+				<td>January</td>
+				<td>${requestScope.weightSummary["January"]*2}</td>
+			</tr>
+			<tr>
+				<td>February</td>
+				<td>${requestScope.weightSummary["February"]/2}</td>
+			</tr>
+			<tr>
+				<td>March</td>
+				<td>${requestScope.weightSummary["March"]}</td>
+			</tr>
+		</table>
+	</div>
 </section>
 
 
