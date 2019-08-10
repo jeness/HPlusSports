@@ -313,3 +313,11 @@ the system will search the object in all scopes in the following order: page, re
 - Call the ApplicationDao method form the servlet class and set all data in the request scope and forwrd control to JSP
 - Add JSTL JAR to build path
 - Add JSTL modules on JSP
+
+## Custom Tag Library
+- User-defined JSP element
+- Can contain on or more tags bundled together
+- A tag library descriptor is an xml dodument. It contains info about a library as a whole and about each tag contained in the library
+- Tag library desciptor file names must have the extension .tld and must be packaged in the /WEB-INF/
+directory or subdirector of the WAR file
+- Custom tag: `<myTags:formatDate.../>`

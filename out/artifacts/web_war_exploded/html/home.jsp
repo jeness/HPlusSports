@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 		<nav class="nav" role="navigation">
 			<div class="container nav-elements">
 				<div class="branding">
-					<a href="#home"><img src="images/hpluslogo.svg"
+					<a href="#home"><img src="../images/hpluslogo.svg"
 						alt="Logo - H Plus Sports"></a>
 				</div>
 				<!-- branding -->
@@ -45,14 +45,12 @@
 			<div class="container">
 <%--				<c:if test="${requestScope.items!=null}">--%>
 					<h2 class="headline">
-						Orders
-<%--						<fmt:message key="label.home.orders" bundle="${message}"></fmt:message>--%>
+						<fmt:message bundle="${message}" key="label.header.orders"/>
 					</h2>
 					<table id="orderHistory">
 
 						<tr>
-<%--							<th><fmt:message key="label.home.table.header1"--%>
-<%--									bundle="${message}"></fmt:message></th>--%>
+
 							<th>Order No.</th>
 							<th>Product Name</th>
 							<th>Order Date</th>
@@ -65,7 +63,8 @@
 
 								<td>${loop.count}</td>
 								<td>${order.productName}</td>
-								<td>${order.orderDate}</td>
+								<td><fmt:formatDate pattern="YYYY-MM-dd" value="${order.orderDate}"
+								/> </td>
 								<td><img width="200px" height="150px"
 									src="${order.productImgPath}"></td>
 							</tr>
